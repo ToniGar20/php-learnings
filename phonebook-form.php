@@ -45,6 +45,11 @@
     <h1>Agenda de contactos</h1>
     <p>Añadir o borrar un nuevo contacto</p>
     <form method="get">
+        <?php
+        foreach ($phonebook as $name =>$phone){
+            echo '<input type="hidden" name="' . $name . '" value="' . $phone .  '"/>';
+        }
+        ?>
         <input type="text" name="contact[]" placeholder="Nombre"/>
         <input type="text" name="phone" placeholder="Teléfono"/>
         <input type="submit" name="submit" value="Enviar"/>
