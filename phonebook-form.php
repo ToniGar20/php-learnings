@@ -22,34 +22,17 @@
     $phonebook[$new_name] = $new_phone;
 
     /**
-     * Validation for empty inputs & adding new contact
+     * Validation for empty inputs & adding new contact. If phone is empty, contact is removed too
      */
     if(empty($new_name)){
         unset($phonebook[$new_name]);
         echo "<p>Introduce un NOMBRE para añadir un contacto a la agenda</p>";
     } elseif (empty($new_phone)){
         unset($phonebook[$new_name]);
-        echo "<p>Introduce un TELÉFONO para añadir un contacto a la agenda</p>";
+        echo "<p>El teléfono de " . $phonebook[$new_name] . "ha sido eliminado</p>";
     } else {
         $phonebook[$new_name] = [$new_phone];
     }
-
-
-    /**
-     * Deleting contacts
-     */
-
-    if(isset($new_name) && empty($new_phone)){
-        unset($phonebook[$new_name]);
-        echo "El teléfono de " . $phonebook[$new_name] . "ha sido eliminado";
-    }
-
-    /**
-     * Changing phone number
-     */
-
-
-
 
     // Testing what value have phonebook;
     print_r($phonebook);
