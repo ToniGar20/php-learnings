@@ -12,7 +12,7 @@
     <?php
     /**
      * Initializing array to store all contacts
-     * Grabbing phone and contacts from form values
+     * Grabbing phone and contacts from form values (GET)
      * Definition of the array with key-value structure
      */
 
@@ -37,7 +37,7 @@
         $phonebook[$new_name] = [$new_phone];
     }
 
-    // Testing what value have phonebook;
+    // Printing value of phonebook;
     print_r($phonebook);
 
     ?>
@@ -46,8 +46,10 @@
     <p>Añadir o borrar un nuevo contacto</p>
     <form method="get">
         <?php
-        foreach ($phonebook as $name =>$phone){
-            echo '<input type="hidden" name="' . $name . '" value="' . $phone .  '"/>';
+        if(count($phonebook) >=1 ){
+            foreach ($phonebook as $name =>$phone){
+                echo '<input type="hidden" name="' . $name . '" value="' . $phone .  '"/>';
+            }
         }
         ?>
         <input type="text" name="contact[]" placeholder="Nombre"/>
