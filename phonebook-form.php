@@ -22,7 +22,10 @@
     $phonebook[$new_name] = $new_phone;
 
     /**
-     * Validation for empty inputs & adding new contact. If phone is empty, contact is removed too
+     * Validations:
+     * 1. Empty name = no contact added
+     * 2. If phone is empty, contact is removed
+     * 3. If both filled, contact added
      */
     if(empty($new_name)){
         unset($phonebook[$new_name]);
