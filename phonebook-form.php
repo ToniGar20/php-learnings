@@ -10,13 +10,49 @@
 <body>
 
     <?php
+    /**
+     * Initializing array to store all contacts
+     * Grabbing phone and contacts from form values
+     * Definition of the array with key-value structure
+     */
 
     $phonebook = [];
     $new_name = $_GET["contact"];
     $new_phone = $_GET["phone"];
     $phonebook[$new_name] = $new_phone;
-    print_r($phonebook);
 
+    /**
+     * Validation for empty inputs & adding new contact
+     */
+    if(empty($new_name)){
+        unset($phonebook[$new_name]);
+        echo "<p>Introduce un NOMBRE para añadir un contacto a la agenda</p>";
+    } elseif (empty($new_phone)){
+        unset($phonebook[$new_name]);
+        echo "<p>Introduce un TELÉFONO para añadir un contacto a la agenda</p>";
+    } else {
+        $phonebook[$new_name] = [$new_phone];
+    }
+
+
+    /**
+     * Deleting contacts
+     */
+
+    if(isset($new_name) && empty($new_phone)){
+        unset($phonebook[$new_name]);
+        echo "El teléfono de " . $phonebook[$new_name] . "ha sido eliminado";
+    }
+
+    /**
+     * Changing phone number
+     */
+
+
+
+
+    // Testing what value have phonebook;
+    print_r($phonebook);
 
     ?>
 
@@ -31,6 +67,9 @@
     <div>
         <h2>Listado de contactos en la agenda</h2>
         <?php
+        /**
+         * Iteration to display all contacts
+         */
         foreach ($phonebook as $name => $phone ){
             echo "<li>" . $name .": ". $phone . "</li>";
         }
