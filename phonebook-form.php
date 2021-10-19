@@ -51,7 +51,7 @@
             $phonebook[$new_contact] = $new_phone;
         }
     } else{
-        echo "<p><i>Rellena los datos con un nombre y un teléfono</i></p>";
+        echo "<p><i>Rellena los campos con un nombre y un teléfono</i></p>";
     }
     ?>
 
