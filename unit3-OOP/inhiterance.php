@@ -1,5 +1,9 @@
 <?php
 
+/** Desde el segundo objeto se sobreescribe el método por herencia.
+ * Si este coomportamiento no se desea se añade la keyword final a la clase de la que se hereda (entonces ninguna otra clase puede extender, dará ERROR).
+ */
+
     class Father {
         public function firstMethod(){
             echo "This is the FATHER message";
@@ -20,8 +24,6 @@
     $s->firstMethod();
     echo "<br>";
 
-    /** Desde el segundo objeto se sobreescribe el método por herencia.
-     * Si este coomportamiento no se desea se añade la keyword final a la clase de la que se hereda (entonces ninguna otra clase puede extender).
-    */
+
 
 ?>
