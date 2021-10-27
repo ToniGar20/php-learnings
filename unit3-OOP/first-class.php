@@ -1,6 +1,6 @@
 <?php
 
-    class Person {
+    class Human {
         // Variables de objeto
         private $name;
         private $surname;
@@ -17,7 +17,7 @@
         }
     }
 
-    $mySelf = new Person("Toni", "García", "33"); // Se construye un objeto
+    $mySelf = new Human("Toni", "García", "33"); // Se construye un objeto
     $mySelf->showData(); // Con el nuevo objeto se llama a su método
 
 ?>

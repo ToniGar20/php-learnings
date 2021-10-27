@@ -1,6 +1,6 @@
 <?php
 
-    abstract class Animal {
+    abstract class LiveBeing {
         protected $type;
 
         public function __construct($a){ // Constructor
@@ -10,7 +10,7 @@
         abstract function showType();
     }
 
-    class Elephant extends Animal{
+    class Elephant extends LiveBeing{
 
         function showType(){
             echo "El Elefante es un $this->type";
