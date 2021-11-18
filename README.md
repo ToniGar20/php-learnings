@@ -10,15 +10,18 @@ Directory contents are about the following:
 1. Introduction
     - Basic PHP 
     - Hello World
-2. Forms and functions
+2. Functions
     - Bubble algorithm 
     - Basic and nested functions
     - Value and reference at functions
-    - Forms testing
-3. OOP
+3. Forms
+    - Forms test
+    - Form to upload files
+4. OOP
     - Object Oriented programming, WIP
-4. Cookies and sessions
+5. Cookies and sessions
     - Example of a phonebook storing the data within a session
+    - Visit counter with cookie
 
 ## Related
 
