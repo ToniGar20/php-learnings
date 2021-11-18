@@ -2,10 +2,12 @@
 
 This repository has a few directories with some examples of PHP coding regarding the theme.
 
+## Pratices
+1. Phonebook with hidden inputs (also done with session)
+2. Login script with session. Practice with [tutorial]("https://codeofaninja.com/2013/03/php-login-script.html")
+
 
 ## Content
-
-Directory contents are about the following:
 
 1. Introduction
     - Basic PHP 
