@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>File Upload</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        * {font-family: Verdana}
+    </style>
+</head>
+<body>
+
+    <!--
+    Explicación del formulario para envío de archivos:
+    1. Hay que usar el método "post" y el atributo "action" indicando el script que ejecturá la subida. También se indica encriptación
+    2. El input ha de ser de tipo "file" e importante el valor "name" que se le de al mismo
+    3. Al hacer el submit enviaremos esto a la variable global de PHP $_FILE
+    -->
+    <form method="post" action="uploads-helper.php" enctype="multipart/form-data">
+        <label>Sube un archivo: <input type="file" name="fileName" id="fileToUpload" value=""/></label>
+        <br>
+        <br>
+        <input type="submit" value="send"/>
+    </form>
+
+</body>
+</html>
