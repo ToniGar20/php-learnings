@@ -4,7 +4,7 @@ This repository has a few directories with some examples of PHP coding regarding
 
 ## Pratices
 1. Phonebook with hidden inputs (also done with session)
-2. Login script with session. Practice with [tutorial]("https://codeofaninja.com/2013/03/php-login-script.html")
+2. Login script with session. Practice with [tutorial](https://codeofaninja.com/2013/03/php-login-script.html)
 
 
 ## Content
