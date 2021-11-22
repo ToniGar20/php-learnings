@@ -11,7 +11,7 @@
 //TODO Añadir sistemas de validación y formateo del contenido subido
 
 //var_dump($_FILES);
-$directory = "uploads/";
+$directory = __DIR__ . "/uploads/";
 
 if(isset($_FILES['fileName'])) {
     $file_name = $_FILES['fileName']['name'];
