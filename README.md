@@ -1,6 +1,6 @@
 # PHP learnings at DAW
 
-This repository has a few directories with some examples of PHP coding regarding the theme.
+This repository has a few directories with some examples of PHP coding per lesson.
 
 ## Pratices
 1. Phonebook with hidden inputs (also done with session)
