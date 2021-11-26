@@ -20,12 +20,17 @@ This repository has a few directories with some examples of PHP coding regarding
     - Forms test
     - Form to upload files
 4. OOP
-    - Object Oriented programming, WIP
+    - Basics
+    - Inhiterance & abstract classes
+    - Magic methods
+    - Traits
 5. Cookies and sessions
     - Example of a phonebook storing the data within a session
     - Visit counter with cookie
 
 ## Related
+
+Also updated at http://agarcia.ifc33b.cifpfbmoll.eu/php-learnings/
 
 Files also update periodically at [DWES repo](https://github.com/DAW-presencial/dwes_2021-ToniGar20). Also, this is the way to upload it to the center (BorjaMoll) server
 WIP
