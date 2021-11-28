@@ -1,0 +1,10 @@
+* Tutorial followed
+https://codeofaninja.com/2013/03/php-login-script.html
+
+* Configured at localhost (Apache virtual host)
+http://login-session-php/
+
+Admin access to the tool
+Username: mike@example.com
+Password: ninja12qw!@QW
+
