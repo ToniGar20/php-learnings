@@ -249,4 +249,63 @@ class User{
         return false;
     }
 
+    // used in forgot password feature
+    function updateAccessCode(){
+
+        // update query
+        $query = "UPDATE
+                " . $this->table_name . "
+            SET
+                access_code = :access_code
+            WHERE
+                email = :email";
+
+        // prepare the query
+        $stmt = $this->conn->prepare($query);
+
+        // sanitize
+        $this->access_code=htmlspecialchars(strip_tags($this->access_code));
+        $this->email=htmlspecialchars(strip_tags($this->email));
+
+        // bind the values from the form
+        $stmt->bindParam(':access_code', $this->access_code);
+        $stmt->bindParam(':email', $this->email);
+
+        // execute the query
+        if($stmt->execute()){
+            return true;
+        }
+
+        return false;
+    }
+
+    // used in forgot password feature
+    function updatePassword(){
+
+        // update query
+        $query = "UPDATE " . $this->table_name . "
+            SET password = :password
+            WHERE access_code = :access_code";
+
+        // prepare the query
+        $stmt = $this->conn->prepare($query);
+
+        // sanitize
+        $this->password=htmlspecialchars(strip_tags($this->password));
+        $this->access_code=htmlspecialchars(strip_tags($this->access_code));
+
+        // bind the values from the form
+        $password_hash = password_hash($this->password, PASSWORD_BCRYPT);
+        $stmt->bindParam(':password', $password_hash);
+        $stmt->bindParam(':access_code', $this->access_code);
+
+        // execute the query
+        if($stmt->execute()){
+            return true;
+        }
+
+        return false;
+    }
+
+
 }
