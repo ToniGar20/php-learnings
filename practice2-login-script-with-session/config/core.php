@@ -6,10 +6,10 @@ error_reporting(E_ALL);
 session_start();
 
 // set your default time-zone
-date_default_timezone_set('Asia/Manila');
+date_default_timezone_set('Europe/Madrid');
 
 // home page url
-$home_url="http://localhost/php-login-script-level-1/";
+$home_url="http://login-session-php/";
 
 // page given in URL parameter, default page is one
 $page = isset($_GET['page']) ? $_GET['page'] : 1;
