@@ -130,8 +130,8 @@ echo "</div>";
 // include page footer HTML
 include_once "layout_foot.php";
 
-// access code for email verification
-$access_code=$utils->getToken();
-$user->access_code=$access_code;
+//// access code for email verification
+//$access_code=$utils->getToken();
+//$user->access_code=$access_code;
 
 ?>
