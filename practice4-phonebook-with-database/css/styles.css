@@ -1,0 +1,28 @@
+body { font-family: Verdana, sans-serif; }
+
+main {display: flex; flex-direction: row; width:50vw; }
+
+table { float: left; border: 1px solid blue; }
+
+td { padding: 15px; border-bottom: 1px solid #ddd; text-align: left; }
+
+tr:hover { background-color: yellow; }
+
+caption { background-color: #04AA6D; color: white; }
+
+form { margin:20px }
+
+.contact-form { display:none }
+
+.add-contact-but {
+    display: flex;
+    align-items: center;
+    background-color: blue;
+    color: white;
+    font-size: 2rem;
+    margin-left: 15px;
+    margin-right: 15px;
+    width: 3rem;
+    border-radius: 50%;
+    justify-content: center;
+}
