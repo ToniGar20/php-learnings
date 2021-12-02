@@ -9,7 +9,7 @@
  */
 
 spl_autoload_register(function ($name){     //$name is equal to the class name
-    include "classes/" . "$name" . ".php";  //$name is concatenated with the folder name to find the file and be able to create the object
+    include "example-classes/" . "$name" . ".php";  //$name is concatenated with the folder name to find the file and be able to create the object
 });
 
 $obj = new A();

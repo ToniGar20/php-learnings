@@ -17,7 +17,7 @@ class Animal
 
     public function showData()
     { // Método de clase
-        echo "$this->name: es un/a $this->type y $this->action";
+        echo "$this->name: es un/a $this->type y hace $this->action";
     }
 }
 

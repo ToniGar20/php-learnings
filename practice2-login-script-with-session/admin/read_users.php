@@ -5,7 +5,7 @@ include_once "../config/core.php";
 // check if logged in as admin
 include_once "login_checker.php";
 
-// include classes
+// include example-classes
 include_once '../config/database.php';
 include_once '../objects/user.php';
 

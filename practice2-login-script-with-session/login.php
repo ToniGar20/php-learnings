@@ -14,7 +14,7 @@ $access_denied=false;
 
 // if the login form was submitted
 if($_POST){
-// include classes
+// include example-classes
     include_once "config/database.php";
     include_once "objects/user.php";
 
