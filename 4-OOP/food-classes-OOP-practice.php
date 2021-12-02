@@ -1,3 +1,10 @@
+/**
+Example of use of a trait and inhiterance:
+a) Classes loaded from /food folder
+b) Each class with trait: "use DishUtilTrait;"
+c) Main method override from parent one
+*/
+
 <?php
 $classes = [
     'Dish' => 'example-classes/food/Dish.php',
@@ -12,6 +19,6 @@ spl_autoload_register(function ($classname) {
     include $classes["$classname"];
 });
 
+// Instancing and calling the main method
 $todayFood = new Pizza("Tropical", "Pineapple", 40);
-//$todayFood->totalIngredients($todayFood->secondaryIngredients);
 $todayFood->dishDescription();
