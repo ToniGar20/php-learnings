@@ -1,7 +1,8 @@
 <?php
 $classes = [
     'Dish' => 'example-classes/food/Dish.php',
-    'PadThai' => 'example-classes/food/Padthai.php',
+    'DishUtilTrait' => 'example-classes/food/DishUtilTrait.php',
+    'PadThai' => 'example-classes/food/PadThai.php',
     'Paella' => 'example-classes/food/Paella.php',
     'Pizza' => 'example-classes/food/Pizza.php'
 ];
