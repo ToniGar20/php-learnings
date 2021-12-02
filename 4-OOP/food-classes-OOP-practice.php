@@ -7,11 +7,11 @@ c) Main method override from parent one
 
 <?php
 $classes = [
-    'Dish' => 'example-classes/food/Dish.php',
-    'DishUtilTrait' => 'example-classes/food/DishUtilTrait.php',
-    'PadThai' => 'example-classes/food/PadThai.php',
-    'Paella' => 'example-classes/food/Paella.php',
-    'Pizza' => 'example-classes/food/Pizza.php'
+    'Dish' => 'food/Dish.php',
+    'DishUtilTrait' => 'food/DishUtilTrait.php',
+    'PadThai' => 'food/PadThai.php',
+    'Paella' => 'food/Paella.php',
+    'Pizza' => 'food/Pizza.php'
 ];
 
 spl_autoload_register(function ($classname) {
