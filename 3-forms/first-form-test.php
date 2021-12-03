@@ -13,9 +13,15 @@
 <body>
     <h1>Registro de usuario</h1>
     <form method="get">
-        <input type="text" placeholder="Nombre" name="name">
-        <input type="text" placeholder="Edad" name="age">
-        <input type="text" placeholder="Email" name="email">
+        <label>
+            <input type="text" placeholder="Nombre" name="name">
+        </label>
+        <label>
+            <input type="text" placeholder="Edad" name="age">
+        </label>
+        <label>
+            <input type="text" placeholder="Email" name="email">
+        </label>
         <button type="submit">Enviar respuesta</button>
     </form>
 

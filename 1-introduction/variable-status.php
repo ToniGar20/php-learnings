@@ -23,11 +23,11 @@
 // Turn off all error reporting
 error_reporting(0);
 
-        function crearFilasResultados($caso) {
+        function createRows($case) {
           global $var;
           static $i = 1;
 
-          $output = '<tr><td>' . $i++ . '</td><td>' . $caso;
+          $output = '<tr><td>' . $i++ . '</td><td>' . $case;
 
           $output .= '</td><td>' . (isset($var) ? 'true' : 'false');
           $output .= '</td><td>' . (empty($var) == 1 ? 'true' : 'false');
@@ -38,36 +38,36 @@ error_reporting(0);
           return $output . PHP_EOL;
         }
 
-        $filas = "";
+        $rows = "";
 
         $var = null;
-        $filas .= crearFilasResultados('$var=null;');
+        $rows  .= createRows('$var=null;');
 
         $var = 0;
-        $filas .= crearFilasResultados('$var= 0;');
+        $rows  .= createRows('$var= 0;');
 
         $var = true;
-        $filas .= crearFilasResultados('$var= true;');
+        $rows  .= createRows('$var= true;');
 
         $var = false;
-        $filas .= crearFilasResultados('$var= false;');
+        $rows  .= createRows('$var= false;');
 
         $var = "0";
-        $filas .= crearFilasResultados('$var= "0";');
+        $rows  .= createRows('$var= "0";');
 
         $var = "";
-        $filas .= crearFilasResultados('$var= "";');
+        $rows  .= createRows('$var= "";');
 
         $var = "foo";
-        $filas .= crearFilasResultados('$var= "foo";');
+        $rows .= createRows('$var= "foo";');
 
         $var = array();
-        $filas .= crearFilasResultados('$var= array();');
+        $rows  .= createRows('$var= array();');
 
         unset($var);
-        $filas .= crearFilasResultados('unset($var);');
+        $rows .= createRows('unset($var);');
 
-echo $filas;
+echo $rows;
 
 ?>
 </table>

@@ -6,11 +6,13 @@
 
 <body>
     <?php
-    var_dump($_GET); // Se revisa el contenido de la variable global a ver qué contenido se está enviando
+    if(isset($_GET)) {
+        var_dump($_GET); // Se revisa el contenido de la variable global a ver qué contenido se está enviando
+    }
     ?>
 
 
-    <form>
+    <form method="get">
         <!--
         - Los inputs necesitan el atributo "name" para enviarse por el servidor.
         - Si dos inputs tienen el mismo valor de "name", el siguiente sobreescribe al primero.
