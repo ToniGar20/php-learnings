@@ -9,6 +9,7 @@
     <!-- CSS -->
     <link rel="stylesheet" type="text/css" href="css/styles.css" />
 </head>
+
 <body>
 
 <header>
@@ -16,49 +17,46 @@
 </header>
 
 <main>
-<div>
-    <button class="add-contact-but">+</button>
-</div>
+    <form action="form-phonebook.php" method="post">
+        <button class="add-contact-but">Añadir nuevo contacto</button>
+    </form>
 
 <?php
 include_once ("config/PhonebookDatabase.php");
 include_once("config/Contact.php");
 
-// Conexión con la base de datos instanciando y llamando al método
+// Conexión con la base de datos instanciando su clase
 $db = (new PhonebookDatabase)->doConnection();
 
-// Variable que usa el método de la clase Actions dónde se guarda la query en método
-$showUsers = (new Contact)->showContacts($db);
+// Instanciando "Contact" para llamar al método que recupera la query que muestra todos los resultados
+$test = new Contact;
+$allContacts = $test->showContacts($db);
 ?>
 
-<table><caption>Contactos de la agenda</caption><tbody>
-<?php
-// Iteración sobre la variable $showUsers que tiene un Array
-foreach($showUsers as $row) {
-    echo "<tr>" .
-        "<td>" . $row["id"] . "</td>" .
-        "<td>" . $row["first_name"] . "</td>" .
-        "<td>" . $row["last_name"] . "</td>" .
-        "<td>" . $row["number"] . "</td>" .
-        "<td>" . $row["type"] . "</td>" .
-        "<td><button>Editar</button></td>" .
-        "<td><button>Eliminar</button></td>" .
-        "</tr>";
-}
-?>
-</tbody></table>
+    <table><caption>Contactos de la agenda</caption>
+        <tbody>
+    <?php
+    // Iteración sobre la variable $showUsers que tiene un Array
+    foreach($allContacts as $row) {
+        ?>
+    <tr>
+        <td><?php echo $row["id"] ?></td>
+        <td><?php echo $row["first_name"] ?></td>
+        <td><?php echo $row["last_name"] ?></td>
+        <td><?php echo $row["number"] ?></td>
+        <td><?php echo $row["type"] ?></td>
+        <form action="form-phonebook.php">
+            <td><button id="<?php echo 'edit-' . $row['id']?>">Editar</button></td>
+            <td><button id="<?php echo 'del-' . $row['id']?>">Eliminar</button></td>
+        </form>
+    </tr>
+        <?php
+    }
+    ?>
+
+    </tbody>
+    </table>
 </main>
-
-<section class="contact-form">
-    <h2>Añadir un nuevo contacto</h2>
-    <form class="contact-form" method="post">
-        <input type="text" name="name" placeholder="Nombre"/>
-        <input type="text" name="surname" placeholder="Apellido/s"/>
-        <input type="text" name="phone" placeholder="Teléfono"/>
-        <input type="text" name="phone-type" placeholder="Tipo"/>
-        <input type="submit" name="submit" value="Enviar"/>
-    </form>
-</section>
 
 </body>
 </html>

@@ -9,7 +9,6 @@ class PhonebookDatabase
     private $password = "password";
     public $conn;
 
-
     //Doing connection to database
     public function doConnection(): ?PDO
     {
@@ -28,9 +27,5 @@ class PhonebookDatabase
         return $this->conn;
     }
 
-    //Close connection
-    public function closeConnection(){
-        $this->conn->close();
-    }
 
 }
