@@ -29,8 +29,7 @@ include_once("config/Contact.php");
 $db = (new PhonebookDatabase)->doConnection();
 
 // Instanciando "Contact" para llamar al método que recupera la query que muestra todos los resultados
-$test = new Contact;
-$allContacts = $test->showContacts($db);
+$allContacts = (new Contact($db))->showContacts();
 ?>
 
     <table><caption>Contactos de la agenda</caption>
@@ -40,18 +39,19 @@ $allContacts = $test->showContacts($db);
     foreach($allContacts as $row) {
         ?>
     <tr>
-        <td><?php echo $row["id"] ?></td>
-        <td><?php echo $row["first_name"] ?></td>
-        <td><?php echo $row["last_name"] ?></td>
-        <td><?php echo $row["number"] ?></td>
-        <td><?php echo $row["type"] ?></td>
-        <form action="form-phonebook.php">
+        <td><?php echo $row['id'] ?></td>
+        <td><?php echo $row['first_name'] ?></td>
+        <td><?php echo $row['last_name'] ?></td>
+        <td><?php echo $row['number'] ?></td>
+        <td><?php echo $row['type'] ?></td>
+        <form action="form-phonebook.php" method="post">
             <td><button id="<?php echo 'edit-' . $row['id']?>">Editar</button></td>
-            <td><button id="<?php echo 'del-' . $row['id']?>">Eliminar</button></td>
         </form>
+            <td><a href="delete-contact.php?id=<?php echo $row['id']; ?>">Eliminar</a></td>
     </tr>
         <?php
     }
+    $db = null;
     ?>
 
     </tbody>

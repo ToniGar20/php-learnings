@@ -21,16 +21,22 @@ if(isset($_POST['send'])) {
     // Si en $_POST está el valor del botón, se inicia el proceso
     // 1. Conexión con la base de datos instanciando su clase y creación de un objeto "Contact"
     $db = (new PhonebookDatabase)->doConnection();
-    $createContact = new Contact();
+    $createContact = new Contact($db);
 
-    $createContact->id = Contact::countMaxContactId($db)+1;
+    // Generación de id para el nuevo contacto
+    $result = $createContact->countMaxContactId();
+    foreach($result as $item){
+        $createContact->id = $item["counter"];
+    }
+    // Recuperación de datos desde el formulario
     $createContact->firstname = $_POST['name'];
     $createContact->lastname = $_POST['lastname'];
-    $createContact->phoneNumber = $_POST['phone'];
+    $createContact->phoneNumber = intval($_POST['phone']);
     $createContact->phoneType = $_POST['phone-type'];
 
-    $createContact->addContact($db);
-    $createContact->addPhone($db);
+    //
+    $createContact->addContact();
+    $createContact->addPhone();
 
     header("location:phonebook.php");
     exit;
