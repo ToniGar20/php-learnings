@@ -8,7 +8,7 @@ td { padding: 15px; border-bottom: 1px solid #ddd; text-align: left; }
 
 tr:hover { background-color: yellow; }
 
-caption { background-color: #04AA6D; color: white; }
+th { background-color: #04AA6D; color: white; height: 2rem; }
 
 form { margin:20px }
 

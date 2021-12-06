@@ -17,8 +17,8 @@
 </header>
 
 <main>
-    <form action="form-phonebook.php" method="post">
-        <button class="add-contact-but">Añadir nuevo contacto</button>
+    <form method="post" action="form-phonebook.php" >
+        <button class="add-contact-but" name="add">Añadir nuevo contacto</button>
     </form>
 
 <?php
@@ -32,8 +32,18 @@ $db = (new PhonebookDatabase)->doConnection();
 $allContacts = (new Contact($db))->showContacts();
 ?>
 
-    <table><caption>Contactos de la agenda</caption>
+    <table>
         <tbody>
+        <tr>
+            <th>Id</th>
+            <th>Nombre</th>
+            <th>Apellido/s</th>
+            <th>Teléfono</th>
+            <th>Tipo</th>
+            <th>Fecha</th>
+            <th></th>
+            <th></th>
+        </tr>
     <?php
     // Iteración sobre la variable $showUsers que tiene un Array
     foreach($allContacts as $row) {
@@ -42,12 +52,11 @@ $allContacts = (new Contact($db))->showContacts();
         <td><?php echo $row['id'] ?></td>
         <td><?php echo $row['first_name'] ?></td>
         <td><?php echo $row['last_name'] ?></td>
-        <td><?php echo $row['number'] ?></td>
-        <td><?php echo $row['type'] ?></td>
-        <form action="form-phonebook.php" method="post">
-            <td><button id="<?php echo 'edit-' . $row['id']?>">Editar</button></td>
-        </form>
-            <td><a href="delete-contact.php?id=<?php echo $row['id']; ?>">Eliminar</a></td>
+        <td><?php echo $row['phone'] ?></td>
+        <td><?php echo $row['phone_type'] ?></td>
+        <td><?php echo $row['date'] ?></td>
+        <td><a href="form-phonebook.php?id=<?php echo $row['id']; ?>">Editar</a></td>
+        <td><a href="delete-contact.php?id=<?php echo $row['id']; ?>">Eliminar</a></td>
     </tr>
         <?php
     }
