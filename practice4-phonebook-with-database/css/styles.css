@@ -1,4 +1,4 @@
-body { font-family: Verdana, sans-serif; }
+body { font-family: AvenirNext, sans-serif }
 
 main {display: flex; flex-direction: column; width:65vw; }
 
@@ -6,9 +6,9 @@ table { float: left; border: 1px solid blue; }
 
 td { padding: 15px; border-bottom: 1px solid #ddd; text-align: left; }
 
-tr:hover { background-color: yellow; }
+tr:hover { background-color: #ffff70; }
 
-th { background-color: #04AA6D; color: white; height: 2rem; }
+th { background-color: darkorange; color: white; height: 2rem; }
 
 form { margin:20px }
 

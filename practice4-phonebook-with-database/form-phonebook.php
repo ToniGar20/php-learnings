@@ -14,12 +14,15 @@
 <main>
     <section class="contact-form">
         <?php
-
+        /**
+         * Carga de uno u otro formulario dependiendo de si se ha pulsado el botón de añadir nuevo contacto
+         */
         if(isset($_POST['add'])){
             include_once("resources/add-contact-content.php");
         } else {
             include_once("resources/edit-contact-content.php");
         }
+
         ?>
     </section>
 </main>

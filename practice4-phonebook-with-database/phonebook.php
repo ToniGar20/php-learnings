@@ -61,7 +61,7 @@ if($counter > 0) {
         <td><?php echo $row['id'] ?></td>
         <td><?php echo $row['first_name'] ?></td>
         <td><?php echo $row['last_name'] ?></td>
-        <td><?php echo $row['phone'] ?></td>
+        <td><b><?php echo $row['phone'] ?></b></td>
         <td><?php echo $row['phone_type'] ?></td>
         <td><?php echo $row['date'] ?></td>
         <td><a href="form-phonebook.php?id=<?php echo $row['id']; ?>">Editar</a></td>
