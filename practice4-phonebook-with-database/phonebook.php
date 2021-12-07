@@ -65,7 +65,7 @@ if($counter > 0) {
         <td><?php echo $row['phone_type'] ?></td>
         <td><?php echo $row['date'] ?></td>
         <td><a href="form-phonebook.php?id=<?php echo $row['id']; ?>">Editar</a></td>
-        <td><a href="delete-contact.php?id=<?php echo $row['id']; ?>">Eliminar</a></td>
+        <td><a href="resources/delete-contact.php?id=<?php echo $row['id']; ?>">Eliminar</a></td>
     </tr>
             <?php
         }
