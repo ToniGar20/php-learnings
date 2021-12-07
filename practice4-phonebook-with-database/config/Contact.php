@@ -26,37 +26,51 @@ class Contact
         )->fetch();
     }
 
-
     function countMaxContactId() {
         return $this->conn->query(
-            "SELECT MAX(id)+1 AS counter FROM phonebook"
-        );
+            "SELECT MAX(id)+1 AS new_id FROM phonebook"
+        )->fetch();
     }
 
     function showEditableContact() {
         return $this->conn->query(
-          "SELECT * FROM phonebook WHERE C.id = $this->id"
-        );
+          "SELECT * FROM phonebook WHERE id = $this->id"
+        )->fetch();
     }
 
     function addContact() {
-        $this->conn->prepare(
+        $data = $this->conn->prepare(
             "INSERT INTO phonebook (id, first_name, last_name, phone, phone_type) 
-            VALUES (:id, :firstname, :lastname, :phone, :phone_type)"
+            VALUES (:id, :firstName, :lastName, :phone, :phoneType)"
         );
-        $this->conn->execute([
+        $data->execute([
             ':id' => $this->id,
-            ':firstname' => $this->firstname,
-            ':lastname' => $this->lastname,
+            ':firstName' => $this->firstname,
+            ':lastName' => $this->lastname,
             ':phone' => $this->phoneNumber,
-            ':phone_type' => $this->phoneType
+            ':phoneType' => $this->phoneType
         ]);
+
+        return true;
     }
 
     function editContact() {
-        $this->conn->query(
-            "UPDATE phonebook SET id = $this->id, first_name = $this->firstname, last_name = $this->lastname  WHERE id = $this->id"
+        $data = $this->conn->prepare(
+            "UPDATE phonebook SET
+                first_name = :firstName, 
+                last_name = :lastName, 
+                phone = :phone,
+                phone_type = :phoneType
+            WHERE id = :id"
         );
+        $data->execute([
+           ':firstName' => $this->firstname,
+           ':lastName' => $this->lastname,
+           ':phone' => $this->phoneNumber,
+           ':phoneType' => $this->phoneType,
+           ':id' => $this->id
+        ]);
+        return true;
     }
 
     function deleteContact() {
