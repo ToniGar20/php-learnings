@@ -16,7 +16,7 @@ class Contact
 
     function showContacts() {
         return $this->conn->query(
-            "SELECT *, DATE(updated_at) AS date FROM phonebook"
+            "SELECT *, DATE(updated_at) AS date FROM phonebook ORDER BY first_name ASC"
         );
     }
 
@@ -34,7 +34,8 @@ class Contact
 
     function addContact() {
         $this->conn->prepare(
-            "INSERT INTO phonebook (id, first_name, last_name, phone, phone_type) VALUES (:id, :firstname, :lastname, :phone, :phone_type)"
+            "INSERT INTO phonebook (id, first_name, last_name, phone, phone_type) 
+            VALUES (:id, :firstname, :lastname, :phone, :phone_type)"
         );
         $this->conn->execute([
             ':id' => $this->id,
