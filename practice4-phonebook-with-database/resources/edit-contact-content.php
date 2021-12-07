@@ -29,16 +29,16 @@ if($resultContact) {
 ?>
 <form class="contact-form" method="POST">
     <label>
-        <input type="text" name="name" placeholder="Nombre" value="<?php echo $data["first_name"]?>"/>
+        <input type="text" name="name" placeholder="Nombre" value="<?php echo $data["first_name"]?>" required/>
     </label>
     <label>
-        <input type="text" name="lastname" placeholder="Apellido/s" value="<?php echo $data["last_name"]?>"/>
+        <input type="text" name="lastname" placeholder="Apellido/s" value="<?php echo $data["last_name"]?>" required/>
     </label>
     <label>
-        <input type="text" name="phone" placeholder="Teléfono" value="<?php echo $data["phone"]?>"/>
+        <input type="text" name="phone" placeholder="Teléfono" value="<?php echo $data["phone"]?>" required/>
     </label>
     <label>
-        <input type="text" name="phone-type" placeholder="Tipo" value="<?php echo $data["phone_type"]?>"/>
+        <input type="text" name="phone-type" placeholder="Tipo" value="<?php echo $data["phone_type"]?>" required/>
     </label>
     <input class="send-but" type="submit" name="send-edit" value="Enviar"/>
 </form>

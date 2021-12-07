@@ -11,7 +11,7 @@ if(isset($_POST['send-new'])){
     // Generación del id: +1 al valor máximo que haya en la tabla. Se guarda como array en esta variable
     $newId = $db->query("SELECT MAX(id)+1 AS new_id FROM phonebook;")->fetch();
 
-    // Ejecución de la query asociando campos y valores
+    // Ejecución de la query almacenada en la variable "$data", asociando campos y valores
     $data->execute([
         ':id' => $newId['new_id'],
         ':firstname' => $_POST['name'],
@@ -29,18 +29,18 @@ if(isset($_POST['send-new'])){
 
 <form class="contact-form" method="post" action="resources/add-contact-content.php">
     <label>
-        <input type="text" name="name" placeholder="Nombre"/>
+        <input type="text" name="name" placeholder="Nombre" required/>
     </label>
     <label>
-        <input type="text" name="lastname" placeholder="Apellido/s"/>
+        <input type="text" name="lastname" placeholder="Apellido/s" required/>
     </label>
     <label>
-        <input type="text" name="phone" placeholder="Teléfono"/>
+        <input type="text" name="phone" placeholder="Teléfono" required/>
     </label>
     <label>
-        <input type="text" name="phone-type" placeholder="Tipo"/>
+        <input type="text" name="phone-type" placeholder="Tipo" required/>
     </label>
-    <input class="send-but" type="submit" name="send-new" value="Enviar"/>
+    <input class="send-but" type="submit" name="send-new" value="Enviar" required/>
 </form>
 
 <a class="home-link" href="phonebook.php">Volver a la agenda</a>
