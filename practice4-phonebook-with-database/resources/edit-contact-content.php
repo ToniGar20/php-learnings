@@ -42,3 +42,5 @@ if($resultContact) {
     </label>
     <input class="send-but" type="submit" name="send-edit" value="Enviar"/>
 </form>
+
+<a class="home-link" href="phonebook.php">Volver a la agenda</a>
