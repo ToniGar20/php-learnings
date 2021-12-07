@@ -14,6 +14,7 @@
 <main>
     <section class="contact-form">
         <?php
+
         if(isset($_POST['add'])){
             include_once("resources/add-contact-content.php");
         } else {

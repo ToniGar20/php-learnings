@@ -3,22 +3,14 @@
 // Mostrando errores en código para entender fallos
 ini_set('display_errors', 1);
 
-include_once("config/PhonebookDatabase.php");
-include_once("config/Contact.php");
-
-    if(isset($_POST['add'])){
+var_dump($_POST);
+    if(isset($_POST['send-new'])){
+        include_once("../config/PhonebookDatabase.php");
         $db = (new PhonebookDatabase())->doConnection();
         $data = $db->prepare("INSERT INTO phonebook (id, first_name, last_name, phone, phone_type) VALUES (:id, :firstname, :lastname, :phone, :phone_type)");
 
-    // Generación de id para el nuevo contacto
-        $createContact = new Contact($db);
-        $result = $createContact->countMaxContactId();
-        foreach($result as $item){
-            return $id = $item["counter"];
-        }
-
         $data->execute([
-            ':id' => $id,
+            ':id' => 200,
             ':firstname' => $_POST['name'],
             ':lastname' => $_POST['lastname'],
             ':phone' => intval($_POST['phone']),
@@ -26,13 +18,13 @@ include_once("config/Contact.php");
         ]);
 
 
-        header("location:phonebook.php");
+        header("location:../phonebook.php");
         exit;
         }
 
 ?>
 
-<form class="contact-form" method="post">
+<form class="contact-form" method="post" action="resources/add-contact-content.php">
     <label>
         <input type="text" name="name" placeholder="Nombre"/>
     </label>
@@ -45,5 +37,5 @@ include_once("config/Contact.php");
     <label>
         <input type="text" name="phone-type" placeholder="Tipo"/>
     </label>
-    <input class="send-but" type="submit" name="add" value="Enviar"/>
+    <input class="send-but" type="submit" name="send-new" value="Enviar"/>
 </form>

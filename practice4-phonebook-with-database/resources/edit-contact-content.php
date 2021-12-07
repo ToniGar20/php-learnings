@@ -4,15 +4,15 @@
 // ini_set('display_errors', 1);
 
 // Importando clases
-include_once("config/PhonebookDatabase.php");
-
 if (isset($_GET['id'])) {
+    include_once("config/PhonebookDatabase.php");
+
     $id = intval($_GET['id']);
     $db = (new PhonebookDatabase())->doConnection();
     $data = $db->query("SELECT * FROM phonebook WHERE id = '$id';")->fetch();
 }
 
-if(isset($_POST["edit"])) {
+if(isset($_POST["send-edit"])) {
     $first_name = $_POST["name"];
     $last_name = $_POST["lastname"];
     $phone = intval($_POST["phone"]);
@@ -40,5 +40,5 @@ if($resultContact) {
     <label>
         <input type="text" name="phone-type" placeholder="Tipo" value="<?php echo $data["phone_type"]?>"/>
     </label>
-    <input class="send-but" type="submit" name="edit" value="Enviar"/>
+    <input class="send-but" type="submit" name="send-edit" value="Enviar"/>
 </form>

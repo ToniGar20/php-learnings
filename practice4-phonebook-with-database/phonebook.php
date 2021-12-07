@@ -31,7 +31,6 @@ $db = (new PhonebookDatabase)->doConnection();
 // Instanciando "Contact" para llamar al método que recupera la query que muestra todos los resultados
 $allContacts = (new Contact($db))->showContacts();
 ?>
-
     <table>
         <tbody>
         <tr>
