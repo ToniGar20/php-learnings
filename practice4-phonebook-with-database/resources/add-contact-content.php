@@ -5,25 +5,32 @@ ini_set('display_errors', 1);
 
 if(isset($_POST['send-new'])){
     include_once("../config/PhonebookDatabase.php");
+    include("../config/Contact.php");
+
+    // Conexión a base de datos
     $db = (new PhonebookDatabase())->doConnection();
-    $data = $db->prepare("INSERT INTO phonebook (id, first_name, last_name, phone, phone_type) VALUES (:id, :firstname, :lastname, :phone, :phone_type)");
+    // Instanciando Contact
+    $contactHolder = new Contact($db);
 
     // Generación del id: +1 al valor máximo que haya en la tabla. Se guarda como array en esta variable
-    $newId = $db->query("SELECT MAX(id)+1 AS new_id FROM phonebook;")->fetch();
+    $newId = $contactHolder->countMaxContactId();
 
-    // Ejecución de la query almacenada en la variable "$data", asociando campos y valores
-    $data->execute([
-        ':id' => $newId['new_id'],
-        ':firstname' => $_POST['name'],
-        ':lastname' => $_POST['lastname'],
-        ':phone' => intval($_POST['phone']),
-        ':phone_type' => $_POST['phone-type']
-    ]);
+    $contactHolder->id = intval($newId['new_id']);
+    $contactHolder->firstname = $_POST['name'];
+    $contactHolder->lastname = $_POST['lastname'];
+    $contactHolder->phoneNumber = intval($_POST['phone']);
+    $contactHolder->phoneType = $_POST['phone-type'];
 
-    // Redirección al homepage
-    header("location:../phonebook.php");
-    exit;
+    $resultContact = $contactHolder->addContact();
+
+    if($resultContact) {
+        $db = null;
+        header("location:../phonebook.php");
+        exit;
+    } else {
+        echo "No se ha podido realizar la operación";
     }
+}
 
 ?>
 

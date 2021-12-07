@@ -1,31 +1,45 @@
 <h1>Editar contacto</h1>
 <?php
 // Mostrando errores en código para entender fallos
-// ini_set('display_errors', 1);
+ini_set('display_errors', 1);
 
 // Importando clases
 if (isset($_GET['id'])) {
     include_once("config/PhonebookDatabase.php");
+    include("config/Contact.php");
 
-    $id = intval($_GET['id']);
+    // Conexión a base de datos
     $db = (new PhonebookDatabase())->doConnection();
-    $data = $db->query("SELECT * FROM phonebook WHERE id = '$id';")->fetch();
+    // Objeto de Contact y variable id capturada en el enlace para saber qué contacto editar
+    $contactHolder = new Contact($db);
+    $id = intval($_GET['id']);
+    $contactHolder->id = $id;
+
+    // Se guardan los datos de la query en la variable $data
+    // Los valores se imprimen directament en el formulario que carga
+    $data = $contactHolder->showEditableContact();
 }
 
 if(isset($_POST["send-edit"])) {
-    $first_name = $_POST["name"];
-    $last_name = $_POST["lastname"];
-    $phone = intval($_POST["phone"]);
-    $phoneType = $_POST["phone-type"];
 
-    $resultContact = $db->query("UPDATE phonebook SET first_name = '$first_name', last_name = '$last_name', phone = '$phone', phone_type = '$phoneType' WHERE id = '$id';");
+    $contactHolder->id = intval($_GET['id']);
+    $contactHolder->firstname = $_POST["name"];
+    $contactHolder->lastname = $_POST["lastname"];
+    $contactHolder->phoneNumber = intval($_POST["phone"]);
+    $contactHolder->phoneType = $_POST["phone-type"];
+
+    $resultContact = $contactHolder->editContact();
+
+    if($resultContact) {
+        $db = null;
+        header("location:phonebook.php");
+        exit;
+    } else {
+        echo "No se ha podido realizar la operación";
+    }
 }
 
-if($resultContact) {
-    $db = null;
-    header("location:phonebook.php");
-    exit;
-}
+
 ?>
 <form class="contact-form" method="POST">
     <label>
