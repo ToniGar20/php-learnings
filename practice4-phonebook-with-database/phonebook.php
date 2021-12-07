@@ -22,6 +22,9 @@
     </form>
 
 <?php
+// Mostrando errores en código para entender fallos
+ini_set('display_errors', 1);
+
 include_once ("config/PhonebookDatabase.php");
 include_once("config/Contact.php");
 
@@ -29,7 +32,14 @@ include_once("config/Contact.php");
 $db = (new PhonebookDatabase)->doConnection();
 
 // Instanciando "Contact" para llamar al método que recupera la query que muestra todos los resultados
-$allContacts = (new Contact($db))->showContacts();
+$contactHolder = new Contact($db);
+$allContacts = $contactHolder->showContacts();
+
+// Se cuentan los contactos de la agenda con método a través de la instanciación anterior
+// Si son mayores a 0 se mostrarará la tabla. En caso de que no haya contactos se mostrará mensaje de que no hay
+$data = $contactHolder->countContacts();
+$counter = intval($data['total']);
+if($counter > 0) {
 ?>
     <table>
         <tbody>
@@ -43,10 +53,10 @@ $allContacts = (new Contact($db))->showContacts();
             <th></th>
             <th></th>
         </tr>
-    <?php
-    // Iteración sobre la variable $showUsers que tiene un Array
-    foreach($allContacts as $row) {
-        ?>
+        <?php
+        // Iteración sobre la variable $allContacts que tiene un Array con todos los registros
+        foreach($allContacts as $row) {
+            ?>
     <tr>
         <td><?php echo $row['id'] ?></td>
         <td><?php echo $row['first_name'] ?></td>
@@ -57,13 +67,19 @@ $allContacts = (new Contact($db))->showContacts();
         <td><a href="form-phonebook.php?id=<?php echo $row['id']; ?>">Editar</a></td>
         <td><a href="delete-contact.php?id=<?php echo $row['id']; ?>">Eliminar</a></td>
     </tr>
-        <?php
-    }
-    $db = null;
-    ?>
+            <?php
+        }
+        $db = null;
+        ?>
 
     </tbody>
     </table>
+
+    <?php
+    } else {
+    echo "No hay contactos en la agenda!";
+    }
+    ?>
 </main>
 
 </body>

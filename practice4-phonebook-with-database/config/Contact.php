@@ -20,6 +20,13 @@ class Contact
         );
     }
 
+    function countContacts() {
+        return $this->conn->query(
+            "SELECT COUNT(*) AS total FROM phonebook;"
+        )->fetch();
+    }
+
+
     function countMaxContactId() {
         return $this->conn->query(
             "SELECT MAX(id)+1 AS counter FROM phonebook"

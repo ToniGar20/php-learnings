@@ -6,5 +6,4 @@ Agenda de contactos utilizando clases y bases de datos.
 * Incluirá las operaciones básicas CRUD
 * No se utilizará ningún framework
 
-
 El fichero de entrega se denominará:  agenda_bd_apel1_apel2_nom.zip
