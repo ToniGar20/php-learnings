@@ -16,6 +16,7 @@ form { margin:20px }
     align-items: center;
     background-color: blue;
     color: white;
+    font-size: 1.1rem;
     margin-bottom: 15px;
     justify-content: center;
 }
@@ -36,4 +37,10 @@ form { margin:20px }
     color: white;
     background-color: blue;
     height: 2rem;
+    width: 50%;
+    align-self: center;
+}
+
+.home-link {
+    align-self: center;
 }
