@@ -13,12 +13,12 @@
 <body>
 
 <header>
-    <h1>Agenda de contactos</h1>
+    <h1>📞 Agenda de contactos</h1>
 </header>
 
 <main>
     <form method="post" action="form-phonebook.php" >
-        <button class="add-contact-but" name="add">Añadir nuevo contacto</button>
+        <button class="add-contact-but" name="add">+ Añadir nuevo</button>
     </form>
 
 <?php
@@ -44,28 +44,32 @@ if($counter > 0) {
     <table>
         <tbody>
         <tr>
+            <!--
             <th>Id</th>
+            -->
             <th>Nombre</th>
             <th>Apellido/s</th>
             <th>Teléfono</th>
             <th>Tipo</th>
             <th>Fecha</th>
-            <th></th>
-            <th></th>
+            <th class="action-header">Editar</th>
+            <th class="action-header">Eliminar</th>
         </tr>
         <?php
         // Iteración sobre la variable $allContacts que tiene un Array con todos los registros
         foreach($allContacts as $row) {
             ?>
     <tr>
+        <!--
         <td><?php echo $row['id'] ?></td>
+        -->
         <td><?php echo $row['first_name'] ?></td>
         <td><?php echo $row['last_name'] ?></td>
         <td><b><?php echo $row['phone'] ?></b></td>
         <td><?php echo $row['phone_type'] ?></td>
         <td><?php echo $row['date'] ?></td>
-        <td><a href="form-phonebook.php?id=<?php echo $row['id']; ?>">Editar</a></td>
-        <td><a href="resources/delete-contact.php?id=<?php echo $row['id']; ?>">Eliminar</a></td>
+        <td class="action-link"><a href="form-phonebook.php?id=<?php echo $row['id']; ?>">✏️</a></td>
+        <td class="action-link"><a href="resources/delete-contact.php?id=<?php echo $row['id']; ?>">🗑️</a></td>
     </tr>
             <?php
         }

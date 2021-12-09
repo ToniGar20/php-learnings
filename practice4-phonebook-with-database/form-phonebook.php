@@ -11,7 +11,7 @@
 </head>
 <body>
 
-<main>
+<main class="main-of-form">
     <section class="contact-form">
         <?php
         /**

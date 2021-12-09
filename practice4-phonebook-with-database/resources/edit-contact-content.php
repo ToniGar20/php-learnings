@@ -1,4 +1,3 @@
-<h1>Editar contacto</h1>
 <?php
 // Mostrando errores en código para entender fallos
 ini_set('display_errors', 1);
@@ -39,8 +38,10 @@ if(isset($_POST["send-edit"])) {
     }
 }
 
-
 ?>
+
+<h1>Editar contacto de <?php echo $data["first_name"]; echo " " . $data["last_name"]?></h1>
+
 <form class="contact-form" method="POST">
     <label>
         <input type="text" name="name" placeholder="Nombre" value="<?php echo $data["first_name"]?>" required/>
@@ -57,4 +58,4 @@ if(isset($_POST["send-edit"])) {
     <input class="send-but" type="submit" name="send-edit" value="Enviar"/>
 </form>
 
-<a class="home-link" href="phonebook.php">Volver a la agenda</a>
+<a class="home-link" href="phonebook.php">⬅️Volver</a>
