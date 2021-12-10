@@ -3,9 +3,16 @@ Aplicación para ver los contactos registrados en una agenda de teléfonos adem�
 
 La información se almacena en base de datos. Se instancian clases para acceder a consultas y métodos diversos que permiten las operaciones CRUD.
 
+## Instrucciones de uso
+
+1. Abrir base de datos en local y ejecutar los scripts SQL del documento resources/database.sql
+2. Sustituir los valores $username y $password de la clase "PhonebookDatabase.php" en la carpeta /config.
+3. Generar un virtual host o incluir la carpeta de este proyecto bajo un directorio ya presente en un virtual host
+4. Abrir el documento phonebook.php
+
 ## Características
 
-* Para el acceso a la base de datos se usa el API PDO de PHP.
+* Para el acceso a la base de datos se usa el API PDO de PHP. Aplicación con MySQL.
 * Consultas generadas en clase. Se preparan las de UPDATE e INSERT.
 * Separación de la capa de presentación respecto la capa de acceso a datos.
 * La inferfaz permite tener las operaciones CRUD.
