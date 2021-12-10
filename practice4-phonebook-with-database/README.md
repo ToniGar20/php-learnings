@@ -15,7 +15,7 @@ La información se almacena en base de datos. Se instancian clases para acceder 
 * Para el acceso a la base de datos se usa el API PDO de PHP. Aplicación con MySQL.
 * Consultas generadas en clase. Se preparan las de UPDATE e INSERT.
 * Separación de la capa de presentación respecto la capa de acceso a datos.
-* La inferfaz permite tener las operaciones CRUD.
+* La interfaz permite tener las operaciones CRUD.
 * Se dispone de un único formulario que carga dos posibles pantilla según se desee añadir o editar un contacto.
 * Script de eliminación.
 * Todas las acciones redirigen la "homepage".
