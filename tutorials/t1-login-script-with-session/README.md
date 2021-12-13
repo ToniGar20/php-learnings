@@ -1,8 +1,8 @@
 * Tutorial followed
-https://codeofaninja.com/2013/03/php-login-script.html
+  https://codeofaninja.com/2013/03/php-login-script.html
 
 * Configured at localhost (Apache virtual host)
-http://login-session-php/
+  http://login-session-php/
 
 Admin Section Login
 Username: mike@example.com

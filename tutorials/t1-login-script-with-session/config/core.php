@@ -9,7 +9,7 @@ session_start();
 date_default_timezone_set('Europe/Madrid');
 
 // home page url
-$home_url="http://agarcia.ifc33b.cifpfbmoll.eu/dwes_2021-ToniGar20/tutorials/t1-login-script-with-session/";
+$home_url="http://login-session-php/";
 
 // page given in URL parameter, default page is one
 $page = isset($_GET['page']) ? $_GET['page'] : 1;
