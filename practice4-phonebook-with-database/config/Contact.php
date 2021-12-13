@@ -16,31 +16,31 @@ class Contact
 
     function showContacts() {
         return $this->conn->query(
-            "SELECT *, DATE(updated_at) AS date FROM phonebook ORDER BY first_name ASC"
+            "SELECT *, DATE(created_at) AS date FROM public.phonebook ORDER BY first_name ASC"
         );
     }
 
     function countContacts() {
         return $this->conn->query(
-            "SELECT COUNT(*) AS total FROM phonebook;"
+            "SELECT COUNT(*) AS total FROM public.phonebook;"
         )->fetch();
     }
 
     function countMaxContactId() {
         return $this->conn->query(
-            "SELECT MAX(id)+1 AS new_id FROM phonebook"
+            "SELECT MAX(id)+1 AS new_id FROM public.phonebook"
         )->fetch();
     }
 
     function showEditableContact() {
         return $this->conn->query(
-          "SELECT * FROM phonebook WHERE id = $this->id"
+          "SELECT * FROM public.phonebook WHERE id = $this->id"
         )->fetch();
     }
 
     function addContact() {
         $data = $this->conn->prepare(
-            "INSERT INTO phonebook (id, first_name, last_name, phone, phone_type) 
+            "INSERT INTO public.phonebook (id, first_name, last_name, phone, phone_type) 
             VALUES (:id, :firstName, :lastName, :phone, :phoneType)"
         );
         $data->execute([
@@ -56,7 +56,7 @@ class Contact
 
     function editContact() {
         $data = $this->conn->prepare(
-            "UPDATE phonebook SET
+            "UPDATE public.phonebook SET
                 first_name = :firstName, 
                 last_name = :lastName, 
                 phone = :phone,
@@ -74,7 +74,7 @@ class Contact
     }
 
     function deleteContact() {
-        return $this->conn->query("DELETE FROM phonebook WHERE id = $this->id");
+        return $this->conn->query("DELETE FROM public.phonebook WHERE id = $this->id");
     }
 
 }

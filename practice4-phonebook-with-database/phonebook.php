@@ -30,6 +30,7 @@ include_once("config/Contact.php");
 
 // Conexión con la base de datos instanciando su clase
 $db = (new PhonebookDatabase)->doConnection();
+var_dump($db);
 
 // Instanciando "Contact" para llamar al método que recupera la query que muestra todos los resultados
 $contactHolder = new Contact($db);
