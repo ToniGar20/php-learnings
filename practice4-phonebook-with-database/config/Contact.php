@@ -33,9 +33,13 @@ class Contact
     }
 
     function showEditableContact() {
-        return $this->conn->query(
-          "SELECT * FROM public.phonebook WHERE id = $this->id"
-        )->fetch();
+        $data = $this->conn->prepare(
+          "SELECT * FROM public.phonebook WHERE id = ':id'"
+        );
+
+        return $data->execute([
+            ':id' => $this->id
+        ])->fetch();
     }
 
     function addContact() {
@@ -74,7 +78,8 @@ class Contact
     }
 
     function deleteContact() {
-        return $this->conn->query("DELETE FROM public.phonebook WHERE id = $this->id");
+        $data = $this->conn->prepare("DELETE FROM public.phonebook WHERE id = :id");
+        return $data->execute([':id' => $this->id]);
     }
 
 }
