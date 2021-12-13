@@ -37,7 +37,8 @@ class Contact
           "SELECT * FROM public.phonebook WHERE id = :id"
         );
 
-        return $data->execute([':id' => $this->id])->fetch();
+        $data->execute([':id' => $this->id]);
+        return $data->fetch();
     }
 
     function addContact() {
