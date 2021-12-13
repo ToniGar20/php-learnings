@@ -3,11 +3,10 @@ Aplicación para ver los contactos registrados en una agenda de teléfonos adem�
 
 La información se almacena en base de datos. Se instancian clases para acceder a consultas y métodos diversos que permiten las operaciones CRUD.
 
-* Configuración para el servidor remoto **51.178.152.213**
-
 ## Instrucciones de uso
 
-Acceder a la dirección del servidor remoto del CIFP Borja Moll: http://agarcia.ifc33b.cifpfbmoll.eu/php-learnings/practice3-phonebook-with-database/phonebook.php
+* Configuración para el servidor remoto **51.178.152.213**
+* Acceder a la **dirección del servidor remoto del CIFP Borja Moll**: http://agarcia.ifc33b.cifpfbmoll.eu/php-learnings/practice3-phonebook-with-database/phonebook.php
 
 ## Características
 
