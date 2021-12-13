@@ -7,7 +7,7 @@ La información se almacena en base de datos. Se instancian clases para acceder 
 
 ## Instrucciones de uso
 
-Acceder a la dirección del servidor remoto del CIFP Borja Moll: http://agarcia.ifc33b.cifpfbmoll.eu/php-learnings/practice4-phonebook-with-database/phonebook.php
+Acceder a la dirección del servidor remoto del CIFP Borja Moll: http://agarcia.ifc33b.cifpfbmoll.eu/php-learnings/practice3-phonebook-with-database/phonebook.php
 
 ## Características
 
