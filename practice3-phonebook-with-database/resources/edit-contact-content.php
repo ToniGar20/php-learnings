@@ -24,11 +24,7 @@ if(isset($_POST["send-edit"])) {
     $contactHolder->id = intval($_GET['id']);
     $contactHolder->firstname = $_POST["name"];
     $contactHolder->lastname = $_POST["lastname"];
-    if(intval($_POST["phone"]) > 999999999) {
-        echo "El número de teléfono introducido tiene más de 9 dígitos";
-    } else {
-        $contactHolder->phoneNumber = intval($_POST["phone"]);
-    }
+    $contactHolder->phoneNumber = intval($_POST["phone"]);
     $contactHolder->phoneType = $_POST["phone-type"];
 
     $resultContact = $contactHolder->editContact();
