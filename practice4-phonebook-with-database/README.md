@@ -3,20 +3,19 @@ Aplicación para ver los contactos registrados en una agenda de teléfonos adem�
 
 La información se almacena en base de datos. Se instancian clases para acceder a consultas y métodos diversos que permiten las operaciones CRUD.
 
+* Configuración para el servidor remoto **51.178.152.213**
+
 ## Instrucciones de uso
 
-1. Abrir base de datos en local y ejecutar los scripts SQL del documento resources/database.sql
-2. Sustituir los valores $username y $password de la clase "PhonebookDatabase.php" en la carpeta /config.
-3. Generar un virtual host o incluir la carpeta de este proyecto bajo un directorio ya presente en un virtual host
-4. Abrir el documento phonebook.php
+Acceder a la dirección del servidor remoto del CIFP Borja Moll: http://agarcia.ifc33b.cifpfbmoll.eu/php-learnings/practice4-phonebook-with-database/phonebook.php
 
 ## Características
 
-* Para el acceso a la base de datos se usa el API PDO de PHP. Aplicación con MySQL.
-* Consultas generadas en clase. Se preparan las de UPDATE e INSERT.
+* Para el acceso a la base de datos se usa el API PDO de PHP. Aplicación con PostgreSQL.
+* Consultas generadas en clase. Se preparan las de UPDATE e INSERT dado que son las necesarias.
 * Separación de la capa de presentación respecto la capa de acceso a datos.
 * La interfaz permite tener las operaciones CRUD.
-* Se dispone de un único formulario que carga dos posibles pantilla según se desee añadir o editar un contacto.
+* Se dispone de un único formulario que carga dos posibles pantillas según se desee añadir o editar un contacto.
 * Script de eliminación.
 * Todas las acciones redirigen la "homepage".
 
