@@ -34,12 +34,10 @@ class Contact
 
     function showEditableContact() {
         $data = $this->conn->prepare(
-          "SELECT * FROM public.phonebook WHERE id = ':id'"
+          "SELECT * FROM public.phonebook WHERE id = :id"
         );
 
-        return $data->execute([
-            ':id' => $this->id
-        ])->fetch();
+        return $data->execute([':id' => $this->id])->fetch();
     }
 
     function addContact() {
