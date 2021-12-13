@@ -15,7 +15,7 @@ Acceder a la dirección del servidor remoto del CIFP Borja Moll: http://agarcia.
 * Consultas generadas en clase. Se preparan las de UPDATE e INSERT dado que son las necesarias.
 * Separación de la capa de presentación respecto la capa de acceso a datos.
 * La interfaz permite tener las operaciones CRUD.
-* Se dispone de un único formulario que carga dos posibles pantillas según se desee añadir o editar un contacto.
+* Se dispone de un único formulario que carga dos posibles plantillas según se desee añadir o editar un contacto.
 * Script de eliminación.
 * Todas las acciones redirigen la "homepage".
 
@@ -24,7 +24,7 @@ Acceder a la dirección del servidor remoto del CIFP Borja Moll: http://agarcia.
 ### Archivos
 
   * _**phonebook.php**_ - "homepage" de la aplicación.
-  * **_form-phonebook.php_** - formulario para editar o añadir un coontacto.
+  * **_form-phonebook.php_** - formulario para editar o añadir un contacto.
 
 ### Carpetas
 
@@ -33,7 +33,7 @@ Acceder a la dirección del servidor remoto del CIFP Borja Moll: http://agarcia.
 * **_resources_** - carpeta con diferentes scripts.
 
 #### config/ 
-* _**Contact.php**_ - clase que incluye todos los métodos que requiren de una consulta así como los atributos necesarios.
+* _**Contact.php**_ - clase que incluye todos los métodos que requieren de una consulta así como los atributos necesarios.
 * _**PhonebookDatabase.php**_ - clase para la conexión de la base de datos. 
 
 #### resources/
