@@ -15,7 +15,7 @@ Acceder a la dirección del servidor remoto del CIFP Borja Moll: http://agarcia.
 * Consultas generadas en clase. Se preparan las de UPDATE e INSERT dado que son las necesarias.
 * Separación de la capa de presentación respecto la capa de acceso a datos.
 * La interfaz permite tener las operaciones CRUD.
-* Se dispone de un único formulario que carga dos posibles pantillas según se desee añadir o editar un contacto.
+* Se dispone de un único formulario que carga dos posibles plantillas según se desee añadir o editar un contacto.
 * Script de eliminación.
 * Todas las acciones redirigen la "homepage".
 
