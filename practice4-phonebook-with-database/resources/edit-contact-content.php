@@ -53,7 +53,7 @@ if(isset($_POST["send-edit"])) {
         <input type="text" name="phone" placeholder="Teléfono" value="<?php echo $data["phone"]?>" required/>
     </label>
     <label>
-        <input type="text" name="phone-type" placeholder="Tipo" value="<?php echo $data["phone_type"]?>" required/>
+        <input type="text" name="phone-type" placeholder="Tipo" value="<?php echo $data["phone_type"]?>" required max="999999999"/>
     </label>
     <input class="send-but" type="submit" name="send-edit" value="Enviar"/>
 </form>

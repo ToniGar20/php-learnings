@@ -45,7 +45,7 @@ if(isset($_POST['send-new'])){
         <input type="text" name="phone" placeholder="Teléfono" required/>
     </label>
     <label>
-        <input type="text" name="phone-type" placeholder="Tipo: Casa, Móvil, Trabajo..." required/>
+        <input type="text" name="phone-type" placeholder="Tipo: Casa, Móvil, Trabajo..." required max="999999999"/>
     </label>
     <input class="send-but" type="submit" name="send-new" value="Enviar" required/>
 </form>
